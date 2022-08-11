@@ -3,7 +3,7 @@ import logging
 import asyncio
 
 async def example_coro(initial_number, result_queue):
-    print("Processing Value! -> {} * 2 = {}".format(initial_number, initial_number * 2))
+    print(f"Processing Value! -> {initial_number} * 2 = {initial_number * 2}")
     await asyncio.sleep(1)
     await result_queue.put(initial_number * 2)
 
@@ -12,7 +12,7 @@ async def result_reader(queue):
         value = await queue.get()
         if value is None:
             break
-        print("Got value! -> {}".format(value))
+        print(f"Got value! -> {value}")
 
 async def run():
 
